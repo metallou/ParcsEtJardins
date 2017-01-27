@@ -1,56 +1,14 @@
 <!DOCTYPE html>
 
 <html>
-<head>
-    <title>Parcs et Jardins</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-    <script src="app.js" type="text/javascript"></script>
-</head>
-<body>
-  <a id="dataLoading" href="#">Chargement des données</a>
-    <div id ="myTablePlaceholder"></div>
-    <script type="text/javascript">
-      //callback method
-      function AdditionalData_Loaded(data)
-      {
-        //create a table
-        var placeholder=document.getElementById("myTablePlaceholder");
-        var table=document.createElement('TABLE');
-        var tbdy=document.createElement('TBODY');
-        table.appendChild(tbdy);
-
-        //for each row in the table add the cell contents
-        for (var i=1; i < data.d.length; i++)
-        {
-            var tr=document.createElement('TR');
-            tbdy.appendChild(tr);
-            tr.appendChild(AddCellContents(data.d, i,'raisonsociale'));
-            tr.appendChild(AddCellContents(data.d, i,'soustype'));
-            tr.appendChild(AddCellContents(data.d, i,'codepostal'));
-            tr.appendChild(AddCellContents(data.d, i,'ville'));
-            tr.appendChild(AddCellContents(data.d, i,'latitude'));
-            tr.appendChild(AddCellContents(data.d, i,'longitude'));
-        }
-        //add the table to page
-        placeholder.appendChild(table);
-      }
-
-      //add cell contents to the table
-      function AddCellContents(data, cell, id)
-      {
-          var td=document.createElement('TD');
-          var dataCell = data[cell][id];
-          td.appendChild(document.createTextNode(dataCell));
-          return td;
-      }
-      
-      $(document).ready(function() {
-        $('#dataLoading').on("click",function(event){
-          LoadAdditionalData();
-          event.preventDefault();
-        });
-      });
-    </script>
-</body>
+    <head>
+        <title>Parcs et Jardins</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script src="app.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="dataPlaceholder"></div>
+        <div id="dataPlaceholder2"></div>
+    </body>
 </html>
