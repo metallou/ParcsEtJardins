@@ -211,6 +211,6 @@ function createView(dt)
 document.addEventListener("DOMContentLoaded", function()
         {
             let script = document.createElement("script");
-            script.src = "//dataprovence.cloudapp.net:8080/v1/dataprovencetourisme/ParcsEtJardins/?format=json&callback=Data_Loaded";
+            script.src = "http://dataprovence.cloudapp.net:8080/v1/dataprovencetourisme/ParcsEtJardins/?format=json&callback=Data_Loaded";
             document.head.appendChild(script);
         });
